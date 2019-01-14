@@ -101,3 +101,5 @@ public class FracCalcJunitCheckpoint4 {
     @Test public void testDivisionCombined2() {assertEquals("-2_2/3", FracCalc.calculateResult("16/4 / -3/2"));}
     @Test public void testDivisionCombined3() {assertEquals("6_661/5520", FracCalc.calculateResult("-38_3/72 / -4_82/37"));}
     @Test public void testDivisionCombined4() {assertEquals("-5/21", FracCalc.calculateResult("1_2/3 / -5_6/3"));}
+    
+}
