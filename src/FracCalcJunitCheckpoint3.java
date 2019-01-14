@@ -106,10 +106,10 @@ public class FracCalcJunitCheckpoint3 {
     
     
     private static void assertEquivalent(String expected, String actual) {
-    	assertEquals(parse(expected).toDouble(), parse(actual).toDouble(), 1.0E-6);
+    	assertEquals(parse(expected), parse(actual), 1.0E-6);
     }
     
-    private static MixedNumber parse(String s) {
+    private static double parse(String s) {
     	int whole, num, denom;
     	String fractional;
     	int underScore = s.indexOf("_");
@@ -130,40 +130,8 @@ public class FracCalcJunitCheckpoint3 {
     		denom = 1;
     	}
     	
-    	return new MixedNumber(whole, num, denom);
-    	
-    }
-    
-    private static class MixedNumber {
-    	private final int whole, num, denom;
-    	
-    	private MixedNumber (int whole, int num, int denom) {
-    		this.whole = whole;
-    		this.num = num;
-    		this.denom = denom;
-    	}
-    	
-    	private double toDouble() {
-    		return whole + (double)num / denom;
-    	}
-    	
+    	return whole + (double)num / denom;
     	
     }
 
-//    // Extra credit only
-//    @Test public void multipleOps1() {assertEquivalent("-20/21", FracCalc.calculateResult("1_2/3 + 5/4 + 5_5/4 - 2_2/4 / -5_6/3"));}
-//    @Test public void multipleOps2() {assertEquivalent("4", FracCalc.calculateResult("1 + 3 + -3 - -3"));}
-//    @Test public void multipleOps3() {assertEquivalent("0", FracCalc.calculateResult("12 * 18 * 18 * 0"));}
-//    @Test public void multipleOps4() {assertEquivalent("3_47/60", FracCalc.calculateResult("20/8 + 3_1/3 - 4/5 - 5/4"));}
-//    @Test public void multipleOps5() {assertEquivalent("1", FracCalc.calculateResult("12345 - 12345 + 12345 - 12345 + 1"));}
-//    @Test public void multipleOps6() {assertEquivalent("0", FracCalc.calculateResult("0 * 0 / 1 / 4/6 / 2_3/4"));}
-//    @Test public void multipleOps7() {assertEquivalent("-1", FracCalc.calculateResult("1/5 + 1/5 + 1/5 + 1/5 + 1/5 - 2"));}
-//    @Test public void multipleOps8() {assertEquivalent("0", FracCalc.calculateResult("-4 + 1 + 1 + 1 + 1"));}
-//    @Test public void multipleOps9() {assertEquivalent("4_1/2", FracCalc.calculateResult("16/4 / 3/2 * 3/2 + 1/2"));}
-//    @Test public void multipleOps10() {assertEquivalent("0", FracCalc.calculateResult("12457 / -1 + 12457"));}
-//    @Test public void multipleOps11() {assertEquivalent("7", FracCalc.calculateResult("5_3/4 - -6_8/8 - 5_3/4"));}
-//    @Test public void multipleOps12() {assertEquivalent("4", FracCalc.calculateResult("2 * 3 - 6 + 1_1/2 + 1/2 - 1/2 - 1/2 + 3"));}
-//    @Test public void multipleOps13() {assertEquivalent("-4", FracCalc.calculateResult("2 * 3 - 6 + -1_1/2 + -1/2 - -1/2 - -1/2 - 3"));}
-//    @Test public void multipleOps14() {assertEquivalent("4", FracCalc.calculateResult("20 / 5 * -1 + 8"));}
-//
 }
